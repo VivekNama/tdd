@@ -53,7 +53,7 @@ TddPractice::Application.routes.draw do
   # root :to => 'welcome#index'
   root :to => 'shows#index'
 
-  resources :shows, :only => [:index, :new, :create]
+  resources :shows, :only => [:index, :new, :create, :destroy]
 
   # See how all your routes lay out with "rake routes"
 

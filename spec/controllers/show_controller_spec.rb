@@ -62,4 +62,23 @@ describe ShowsController do
       end
     end
   end
+
+  describe "#destroy" do
+    before do
+      @show = FactoryGirl.create(:show)
+    end
+
+    it "should delete the show" do
+      lambda do
+        delete :destroy, id: @show
+      end.should change(Show, :count).by(-1)
+    end
+
+    it "should redirect to shows index" do
+      delete :destroy, id: @show
+
+      response.should be_redirect
+      response.location.should == shows_url
+    end
+  end
 end

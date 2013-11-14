@@ -19,4 +19,16 @@ describe "Shows" do
     page.should have_content "Family Guy"
     page.should have_content "http://somephoto.com"
   end
+
+  describe "action existing record" do
+    let!(:show) { FactoryGirl.create(:show) }
+
+    it "should be able to delete a show" do
+      visit "/"
+
+      click_link("Delete")
+
+      page.should have_no_content("Delete")
+    end
+  end
 end

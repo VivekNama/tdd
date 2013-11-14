@@ -25,4 +25,9 @@ puts @success
       head(:unprocessable_entity)
     end
   end
+
+  def destroy
+    Show.find(params[:id]).destroy
+    redirect_to shows_path
+  end
 end
